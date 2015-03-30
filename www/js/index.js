@@ -20,6 +20,7 @@ var lastSchool="";
 var lastTown="";
 var isAfter=false;
 var Array;
+var path;
 
 function year() {		
 	var d = new Date();
@@ -47,7 +48,7 @@ function loadXMLFile(){
 	{// code for IE6, IE5
 	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	xmlhttp.open("GET","res/listediplomes.xml",false);
+	xmlhttp.open("GET",path+"listediplomes.xml",false);
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML; 
 }
@@ -451,35 +452,32 @@ function displayStudent(){
 }
 
 function getDep(){
- loadXMLFile();
-    var x=xmlDoc.getElementsByTagName("DEP");
-    for (i=0;i<x.length;i++){
-  document.write(x[i].getAttribute("Name"));
- }
-}
-function getDip(){
-	loadXMLFile();
-    var x=xmlDoc.getElementsByTagName("DIPLOME");
-    for (i=0;i<x.length;i++){
-		if(x[i].parentNode.getAttribute("Name") == dep)
-			document.write(x[i].getAttribute("Name"));
-	}
- }
-function getDep(){
 	loadXMLFile();
     var x=xmlDoc.getElementsByTagName("DEP");
     for (i=0;i<x.length;i++){
-		document.write(x[i].getAttribute("Name"));
+		Array[i] = x[i].getAttribute('Name');
+		document.write("<b><a onclick="+"passageDip("+i+")"+">"+x[i].getAttribute('Name')+"</a></b><br>");
 	}
 }
 function getDip(){
+	var requete = window.location.search ;
+	if (requete) { 
+		dep=requete.substring(1) ;
+	}
+	
 	loadXMLFile();
     var x=xmlDoc.getElementsByTagName("DIPLOME");
     for (i=0;i<x.length;i++){
 		if(x[i].parentNode.getAttribute("Name") == dep){
-			document.write(x[i].getAttribute("Name"));
+		Array[i] = x[i].getAttribute('Name');
+		document.write("<b><a onclick="+"passageDip("+i+")"+">"+x[i].getAttribute('Name')+"</a></b><br>");
 		}	
 	}
+}
+
+function passageDip(name){
+		alert(Array[name]);
+		window.location.href = "index3.html?"+Array[name];
 }
 
 function getPic(){
@@ -506,7 +504,14 @@ function checkConnection() {
     return states[networkState];
 }
 
-
+function getXML(){ 
+	var check = checkConnection(); 
+	if (check != 'No network connection')
+	{ 
+		path = "http://perso.univ-lemans.fr/~i130075/diplapp/";
+	}
+	else { path = "res/"; } 
+}
 
 
 
