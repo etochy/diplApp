@@ -483,11 +483,11 @@ function getDip(){
 }
 
 function getPic(){
- src = "http://perso.univ-lemans.fr/~i131460/diplapp/photos/p-"+num+".jpg";
- alert(src);
-img = document.createElement('img');
- img.src = src;
- document.write('<img src="'+src+'"alt="Picture">');
+	src = "http://perso.univ-lemans.fr/~i131460/diplapp/photos/p-"+num+".jpg";
+	alert(src);
+	img = document.createElement('img');
+	img.src = src;
+	document.write('<img src="'+src+'" class='+"'image'>");
 }
 
 function checkConnection() {
