@@ -459,7 +459,7 @@ function getDep(){
 		Array[i] = x[i].getAttribute('Name');
 		document.write("<tr>");
         document.write("<td>");
-        document.write("<b><a onclick="+"passageDip("+i+")"+">"+x[i].getAttribute('Name')+"</a></b>");
+        document.write("<a onclick="+"passageDip("+i+")"+">"+x[i].getAttribute('Name')+"</a>");
         document.write("</td>");
 		document.write("</tr>");
 	}
@@ -472,13 +472,19 @@ function getDip(){
 	}
 	
 	loadXMLFile();
+	document.write("<table class='tabcenter'><tr><th>DIPLOMES</th></tr>");
     var x=xmlDoc.getElementsByTagName("DIPLOME");
     for (i=0;i<x.length;i++){
 		if(x[i].parentNode.getAttribute("Name") == dep){
 		Array[i] = dep+"/tous/"+x[i].getAttribute('Name');
-		document.write("<b><a onclick="+"passageTout("+i+")"+">"+x[i].getAttribute('Name')+"</a></b><br>");
+		document.write("<tr>");
+        document.write("<td>");
+		document.write("<a onclick="+"passageTout("+i+")"+">"+x[i].getAttribute('Name')+"</a><br>");
+		  document.write("</td>");
+		document.write("</tr>");
 		}	
 	}
+	document.write("</table>");
 }
 
 function passageDip(name){
