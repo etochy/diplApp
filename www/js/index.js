@@ -49,7 +49,7 @@ function loadXMLFile(){
 	{// code for IE6, IE5
 	xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
 	}
-	xmlhttp.open("GET",path+"listediplomes.xml",false);
+	xmlhttp.open("GET",path+"/listediplomes.xml",false);
 	xmlhttp.send();
 	xmlDoc=xmlhttp.responseXML; 
 }
@@ -527,11 +527,36 @@ function checkConnection() {
 }
 
 function getXML(){ 
-	var check = checkConnection(); 
+	// var check = checkConnection(); 
 	var check = "plp";
 	if (check != 'No network connection')
 	{ 
+		alerte("ta mere");
 		path2 = "http://perso.univ-lemans.fr/~i131460/diplapp";
+		path = "http://perso.univ-lemans.fr/~i131460/diplapp";
+		
+		path = "http://perso.univ-lemans.fr/~i130075/diplapp/";
+		var fileTransfer = new FileTransfer();
+		var uri = encodeURI(path"+listediplomes.xml");
+
+		fileTransfer.download(
+			uri,
+			"res/",
+			function(entry) {
+			console.log("download complete: " + entry.toURL());
+			},
+			function(error) {
+				console.log("download error source " + error.source);
+				console.log("download error target " + error.target);
+				console.log("upload error code" + error.code);
+			},
+			false,
+			{
+				headers: {
+				"Authorization": "Basic dGVzdHVzZXJuYW1lOnRlc3RwYXNzd29yZA=="
+				}
+			}
+		);
 	}
 	else { path = "res/"; } 
 }
