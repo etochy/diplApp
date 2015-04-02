@@ -453,11 +453,17 @@ function displayStudent(){
 
 function getDep(){
 	loadXMLFile();
+	document.write("<table class='tabcenter'><tr><th>DEPARTEMENT</th></tr>");
     var x=xmlDoc.getElementsByTagName("DEP");
     for (i=0;i<x.length;i++){
 		Array[i] = x[i].getAttribute('Name');
-		document.write("<b><a onclick="+"passageDip("+i+")"+">"+x[i].getAttribute('Name')+"</a></b><br>");
+		document.write("<tr>");
+        document.write("<td>");
+        document.write("<b><a onclick="+"passageDip("+i+")"+">"+x[i].getAttribute('Name')+"</a></b>");
+        document.write("</td>");
+		document.write("</tr>");
 	}
+		document.write("</table>");
 }
 function getDip(){
 	var requete = window.location.search ;
@@ -510,15 +516,15 @@ function checkConnection() {
 }
 
 function getXML(){ 
-	var check = checkConnection(); 
+	// var check = checkConnection(); 
 	// var check = "plp";
-	if (check != 'No network connection')
-	{ 
-		path = "http://perso.univ-lemans.fr/~i130075/diplapp/";
-	}
-	else { path = "res/"; } 
+	// if (check != 'No network connection')
+	// { 
+		// path = "http://perso.univ-lemans.fr/~i130075/diplapp/";
+	// }
+	// else { path = "res/"; } 
 	
-	//path = "res/";
+	path = "res/";
 }
 
 
