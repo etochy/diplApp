@@ -7,6 +7,6 @@
     <author>
        Esteban Launay, Alexis Karasev
     </author>
-    <content src="index2.html" />
+    <content src="index.html" />
     <access origin="*" />
 </widget>

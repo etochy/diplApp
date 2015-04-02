@@ -65,7 +65,7 @@ function refresh(form1) {
         annee = document.form0.year.value;
 		dip = document.form1.reDip.value;
         var requete = dep+"/"+annee+"/"+dip;
-        window.location.href = "index.html?" + requete ;
+        window.location.href = "index3.html?" + requete ;
 
 }
 
@@ -480,7 +480,7 @@ function getDip(){
 		document.write("<tr>");
         document.write("<td>");
 		document.write("<a onclick="+"passageTout("+i+")"+">"+x[i].getAttribute('Name')+"</a><br>");
-		  document.write("</td>");
+		document.write("</td>");
 		document.write("</tr>");
 		}	
 	}
@@ -489,12 +489,12 @@ function getDip(){
 
 function passageDip(name){
 		alert(Array[name]);
-		window.location.href = "index3.html?"+Array[name];
+		window.location.href = "index2.html?"+Array[name];
 }
 
 function passageTout(requete){
 	alert("te mere");
-	window.location.href = "index.html?"+Array[requete];
+	window.location.href = "index3.html?"+Array[requete];
 }
 
 function getPic(){
@@ -522,15 +522,15 @@ function checkConnection() {
 }
 
 function getXML(){ 
-	// var check = checkConnection(); 
+	var check = checkConnection(); 
 	// var check = "plp";
 	// if (check != 'No network connection')
 	// { 
-		// path = "http://perso.univ-lemans.fr/~i130075/diplapp/";
+		path = "http://perso.univ-lemans.fr/~i130075/diplapp/";
 	// }
 	// else { path = "res/"; } 
 	
-	path = "res/";
+	// path = "res/";
 }
 
 

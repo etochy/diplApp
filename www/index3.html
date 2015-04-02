@@ -13,7 +13,7 @@
 		<script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="js/index.js"></script>
         <title>IUT Laval</title>
-			<script language="JavaScript"> getXML();</script>
+		<script language="JavaScript"> getXML();</script>
     </head>
     <body>
        
@@ -21,8 +21,31 @@
 <h2>IUT Laval</h2>
 </header>
 
+<choix>  
+
+	<form name="form0">
+	<body onLoad="year()"/>
+	<label for="Date">Date :</label> 
+	<select name="year" value=""></select>	
+	</form>
+	
+	<form name="form1">
+	<label for="reDep">Département :</label>
+	<input type="text" name="reDep" value="" size =5/>
+	<br>
+	
+	<label for="reDip">Diplome :</label>
+	<input type="text" name="reDip" value="" size=5/> 
+	<br>
+	<input type="button" name="rech1" value="Actualiser" onClick="refresh(form1)"/>
+	</form>
+	
+	
+</choix>
+
 <section>
-	<script language="JavaScript"> getDip();</script>
+	<h1>Eleves diplomes</h1>
+	<script language="JavaScript"> getAll();</script>
 	<br>
 </section>
 
