@@ -469,8 +469,8 @@ function getDip(){
     var x=xmlDoc.getElementsByTagName("DIPLOME");
     for (i=0;i<x.length;i++){
 		if(x[i].parentNode.getAttribute("Name") == dep){
-		Array[i] = x[i].getAttribute('Name');
-		document.write("<b><a onclick="+"passageDip("+i+")"+">"+x[i].getAttribute('Name')+"</a></b><br>");
+		Array[i] = dep+"/tous/"+x[i].getAttribute('Name');
+		document.write("<b><a onclick="+"passageTout("+i+")"+">"+x[i].getAttribute('Name')+"</a></b><br>");
 		}	
 	}
 }
@@ -478,6 +478,11 @@ function getDip(){
 function passageDip(name){
 		alert(Array[name]);
 		window.location.href = "index3.html?"+Array[name];
+}
+
+function passageTout(requete){
+	alert("te mere");
+	window.location.href = "index.html?"+Array[requete];
 }
 
 function getPic(){
@@ -500,17 +505,20 @@ function checkConnection() {
     states[Connection.CELL_4G]  = 'Cell 4G connection';
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
-
+	alert(states[networkState]);
     return states[networkState];
 }
 
 function getXML(){ 
 	var check = checkConnection(); 
+	// var check = "plp";
 	if (check != 'No network connection')
 	{ 
 		path = "http://perso.univ-lemans.fr/~i130075/diplapp/";
 	}
 	else { path = "res/"; } 
+	
+	//path = "res/";
 }
 
 
