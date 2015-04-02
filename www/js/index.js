@@ -21,6 +21,7 @@ var lastTown="";
 var isAfter=false;
 var Array;
 var path;
+var path2;
 
 function year() {		
 	var d = new Date();
@@ -71,8 +72,6 @@ function refresh(form1) {
 
 
 function actualisation(num){
-	alert("ta mere : "+num);
-	//alert(checkConnection());
 	window.location.href = "etu.html?"+Array[num];
 }
 
@@ -130,7 +129,8 @@ function getAllByDepDipAnnee(){
 					document.write(x[i].parentNode.getAttribute('Id'));
 					document.write("</td>");
 					document.write("<td>");
-					document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") />"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
+					Array[i] = x[i].getAttribute('Num');
+					document.write("<b><a onclick= "+"actualisation("+i+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
 					document.write("</td>");
 					document.write("<td>");
 					document.write(x[i].getAttribute('Num'));
@@ -160,7 +160,8 @@ function getAllByDepAndYear(){
 				document.write(x[i].parentNode.getAttribute('Id'));
 				document.write("</td>");
 				document.write("<td>");
-				document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
+				Array[i] = x[i].getAttribute('Num');
+				document.write("<b><a onclick= "+"actualisation("+i+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
 				document.write("</td>");
 				document.write("<td>");
 				document.write(x[i].getAttribute('Num'));
@@ -189,7 +190,8 @@ function getAllByDipAndYear(){
 				document.write(x[i].parentNode.getAttribute('Id'));
 				document.write("</td>");
 				document.write("<td>");
-				document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
+				Array[i] = x[i].getAttribute('Num');
+				document.write("<b><a onclick= "+"actualisation("+i+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
 				document.write("</td>");
 				document.write("<td>");
 				document.write(x[i].getAttribute('Num'));
@@ -218,7 +220,8 @@ function getAllByDepAndDip(){
 				document.write(x[i].parentNode.getAttribute('Id'));
 				document.write("</td>");
 				document.write("<td>");
-				document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
+				Array[i] = x[i].getAttribute('Num');
+				document.write("<b><a onclick= "+"actualisation("+i+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
 				document.write("</td>");
 				document.write("<td>");
 				document.write(x[i].getAttribute('Num'));
@@ -246,7 +249,8 @@ function getAllByDep(){
 			document.write(x[i].parentNode.getAttribute('Id'));
 			document.write("</td>");
 			document.write("<td>");
-			document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
+			Array[i] = x[i].getAttribute('Num');
+			document.write("<b><a onclick= "+"actualisation("+i+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
 			document.write("</td>");
 			document.write("<td>");
 			document.write(x[i].getAttribute('Num'));
@@ -273,7 +277,8 @@ function getAllByDip(){
 			document.write(x[i].parentNode.getAttribute('Id'));
 			document.write("</td>");
 			document.write("<td>");
-			document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
+			Array[i] = x[i].getAttribute('Num');
+			document.write("<b><a onclick= "+"actualisation("+i+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
 			document.write("</td>");
 			document.write("<td>");
 			document.write(x[i].getAttribute('Num'));
@@ -301,7 +306,8 @@ function getAllByAnnee(){
 			document.write(x[i].parentNode.getAttribute('Id'));
 			document.write("</td>");
 			document.write("<td>");
-			document.write("<b><a onclick= "+"actualisation("+x[i].getAttribute('Num')+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
+			Array[i] = x[i].getAttribute('Num');
+			document.write("<b><a onclick= "+"actualisation("+i+") >"+x[i].getAttribute('LastName')+" "+x[i].getAttribute('Name')+"</a></b>");
 			document.write("</td>");
 			document.write("<td>");
 			document.write(x[i].getAttribute('Num'));
@@ -488,18 +494,15 @@ function getDip(){
 }
 
 function passageDip(name){
-		alert(Array[name]);
 		window.location.href = "index2.html?"+Array[name];
 }
 
 function passageTout(requete){
-	alert("te mere");
 	window.location.href = "index3.html?"+Array[requete];
 }
 
 function getPic(){
-	src = "http://perso.univ-lemans.fr/~i131460/diplapp/photos/p-"+num+".jpg";
-	alert(src);
+	src = path2+"/photos/p-"+num+".jpg";
 	img = document.createElement('img');
 	img.src = src;
 	document.write('<img src="'+src+'" class='+"'image'>");
@@ -517,20 +520,20 @@ function checkConnection() {
     states[Connection.CELL_4G]  = 'Cell 4G connection';
     states[Connection.CELL]     = 'Cell generic connection';
     states[Connection.NONE]     = 'No network connection';
+	
 	alert(states[networkState]);
+	
     return states[networkState];
 }
 
 function getXML(){ 
 	var check = checkConnection(); 
-	// var check = "plp";
-	// if (check != 'No network connection')
-	// { 
-		path = "http://perso.univ-lemans.fr/~i130075/diplapp/";
-	// }
-	// else { path = "res/"; } 
-	
-	// path = "res/";
+	var check = "plp";
+	if (check != 'No network connection')
+	{ 
+		path2 = "http://perso.univ-lemans.fr/~i131460/diplapp";
+	}
+	else { path = "res/"; } 
 }
 
 
