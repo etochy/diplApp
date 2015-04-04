@@ -528,11 +528,11 @@ function checkConnection() {
 
 function getXML(){ 
 	// alert("go");
-	// checkConnection(); 
+	// var ckexk = checkConnection(); 
 	// var check = "plp";
 	// if (check != 'No network connection')
 	// { 
-		// alerte("ta mere");
+		alerte("ta mere");
 		path2 = "http://perso.univ-lemans.fr/~i131460/diplapp";
 		// path = "http://perso.univ-lemans.fr/~i131460/diplapp";
 	
