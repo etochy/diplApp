@@ -528,7 +528,7 @@ function checkConnection() {
 
 function getXML(){ 
 	// alert("go");
-	checkConnection(); 
+	// checkConnection(); 
 	// var check = "plp";
 	// if (check != 'No network connection')
 	// { 
