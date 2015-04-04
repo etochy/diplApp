@@ -532,7 +532,7 @@ function getXML(){
 	// var check = "plp";
 	// if (check != 'No network connection')
 	// { 
-		alerte("ta mere");
+		alert("ta mere");
 		path2 = "http://perso.univ-lemans.fr/~i131460/diplapp";
 		// path = "http://perso.univ-lemans.fr/~i131460/diplapp";
 	
