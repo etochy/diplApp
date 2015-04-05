@@ -61,12 +61,18 @@ function readStudent(form2){
 	}
 	document.form2.output.value=num; 
 }
-function refresh(form1) {
-        dep = document.form1.reDep.value;
-        annee = document.form0.year.value;
-		dip = document.form1.reDip.value;
-        var requete = dep+"/"+annee+"/"+dip;
-        window.location.href = "index3.html?" + requete ;
+function refresh(form0) {
+	
+	
+	var requete = window.location.search.substring(1).split("/") ;
+	if (requete != "") {
+		dep = requete[0];
+		annee = requete[1];
+		dip = requete[2];
+	}
+	annee = document.form0.year.value;
+	var requete = dep+"/"+annee+"/"+dip;
+	window.location.href = "index3.html?" + requete ;
 
 }
 
@@ -532,7 +538,7 @@ function getXML(){
 	// var check = "plp";
 	// if (check != 'No network connection')
 	// { 
-		alert("ta mere");
+		// alert("ta mere");
 		path2 = "http://perso.univ-lemans.fr/~i131460/diplapp";
 		// path = "http://perso.univ-lemans.fr/~i131460/diplapp";
 	

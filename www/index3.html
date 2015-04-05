@@ -27,17 +27,7 @@
 	<body onLoad="year()"/>
 	<label for="Date">Date :</label> 
 	<select name="year" value=""></select>	
-	</form>
-	
-	<form name="form1">
-	<label for="reDep">Département :</label>
-	<input type="text" name="reDep" value="" size =5/>
-	<br>
-	
-	<label for="reDip">Diplome :</label>
-	<input type="text" name="reDip" value="" size=5/> 
-	<br>
-	<input type="button" name="rech1" value="Actualiser" onClick="refresh(form1)"/>
+	<input type="button" name="rech1" value="Actualiser" onClick="refresh(form0)"/>
 	</form>
 	
 	
@@ -48,6 +38,10 @@
 	<script language="JavaScript"> getAll();</script>
 	<br>
 </section>
+
+<center>
+<input type="button" name="retour" value="Retour" onClick="self.location.href='index.html'"/>
+</center>
 
 <footer>
 Esteban Launay, Alexis Karassev
